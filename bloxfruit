@@ -1,0 +1,15 @@
+local HS = game:GetService("HttpService")
+local webhook = "https://discord.com/api/webhooks/917705020022075422/rQuUWQVNZOiMpMvodg1qt5N1TKXi88cZDsb5BI070xwvyiR5EDMSxbkHP-LhxFeglkK9"
+local delay = 30
+local player = game.Players:GetService("Players")
+
+local messagedata = {
+    ["level"] = "Level :"..(player.Name).Data.Level.Value,
+    ["Beli"] = "Beli :"..(player.Name).Data.Beli.Value,
+    ["Fragment"] = "Fragment :"..(player.Name).Data.Fragments.Value,
+    ["Devil Fruit"] = "Devil Fruit"..(player.Name).Data.DevilFruit.Value,
+}
+
+local messagedata = HS:JSONEncode(messagedata)
+
+HS:PostAsync(webhook,messagedata)
